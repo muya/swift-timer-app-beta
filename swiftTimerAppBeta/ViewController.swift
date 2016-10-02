@@ -33,7 +33,7 @@ class ViewController: UIViewController {
         // set default timeLabel value
         resetTimeLabel()
         
-        self.navigationController.navigationBar.setBackgroundImage(UIImage(named: "transparentNavBar"), forBarMetrics: UIBarMetrics.Default)
+        self.navigationController?.navigationBar.setBackgroundImage(UIImage(named: "transparentNavBar"), forBarMetrics: UIBarMetrics.Default)
     }
 
     override func didReceiveMemoryWarning() {
@@ -79,10 +79,10 @@ class ViewController: UIViewController {
         resetTimeLabel()
     }
     
-    override func prepareForSegue(segue: UIStoryboardSegue!, sender: AnyObject!) {
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject!) {
         
         var capturedTime = self.timeLabel.text
-        times.append(capturedTime)
+        times.append(capturedTime!)
         let destinationViewController = segue.destinationViewController as SavedTimesTableViewController
         destinationViewController.savedTimes = times
     }
